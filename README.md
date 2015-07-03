@@ -1,2 +1,2 @@
-# Android Blog
-My personal Android development blog
+# Dev Blog
+My personal development blog
