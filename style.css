@@ -1,0 +1,73 @@
+<style shim-shadowdom>
+  
+    body {
+      transition: opacity ease-in 0.2s; 
+      font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+      color: #333;
+    }
+    
+    body[unresolved] {
+    	opacity: 0; 
+    	display: block; 
+    	overflow: hidden; 
+    	position: relative; 
+    } 
+    
+    body.core-narrow {
+      padding: 12px;
+    }
+    
+    paper-tabs, core-toolbar {
+      background-color: #00bcd4;
+      color: #fff;
+      box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.2);
+    }
+    
+    core-toolbar.medium-short {
+	height: 112px;
+	display: block;
+    }
+    
+    core-toolbar paper-tabs {
+      box-shadow: none;
+    }
+    
+    paper-tabs[noink][nobar] paper-tab.core-selected {
+      color: #ffff8d;
+    }
+    
+    paper-tabs.transparent-teal {
+      background-color: transparent;
+      color: #00bcd4;
+      box-shadow: none;
+    }
+    
+    paper-tabs.transparent-teal::shadow #selectionBar {
+      background-color: #00bcd4;
+    }
+    
+    paper-tabs.transparent-teal paper-tab::shadow #ink {
+      color: #00bcd4;
+    }
+    
+    core-animated-pages {
+      position: absolute;
+      top: 112px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      font-size: 72px;
+      overflow: hidden;
+    }
+
+    section > div {
+      height: 100%;
+      color: white;
+    }
+    
+    h3 {
+      font-size: 18px;
+      font-weight: 400;
+    }
+    
+</style>

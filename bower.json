@@ -1,0 +1,39 @@
+{
+  "name": "android-blog",
+  "version": "0.0.1",
+  "homepage": "https://github.com/NAYOSO/android-blog",
+  "authors": [
+    "NAYOSO <niko.yuwono.91@gmail.com>"
+  ],
+  "description": "My personal Android development blog",
+  "keywords": [
+    "Android",
+    "Development",
+    "Japan"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.0.5",
+    "iron-elements": "PolymerElements/iron-elements#1.0.0",
+    "paper-elements": "PolymerElements/paper-elements#1.0.1",
+    "neon-elements": "PolymerElements/neon-elements#1.0.0"
+  },
+  "resolutions": {
+    "webcomponentsjs": "^0.7.2",
+    "marked-element": "^1.0.0",
+    "web-animations-js": "^2.0.0",
+    "polymer": "^1.0.0",
+    "paper-button": "^1.0.0",
+    "paper-icon-button": "^1.0.0",
+    "paper-item": "^1.0.0",
+    "paper-ripple": "^1.0.0",
+    "font-roboto": "^1.0.0"
+  }
+}

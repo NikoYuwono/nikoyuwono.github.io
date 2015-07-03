@@ -1,0 +1,108 @@
+<html>
+  <head>
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="bower_components/iron-media-query/iron-media-query.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/neon-animation/neon-animated-pages.html">
+    <link rel="import" href="bower_components/neon-animation/animations/slide-from-right.html">
+    <style>
+    	body {
+			margin: 0;
+			padding: 0;
+		} 
+	    #color-editor { 
+			float: left; 
+			width: 50%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+		#string-editor { 
+			float: left; 
+			width: 50%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#string-output { 
+			float: right; 
+			width: 50%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+    </style>
+    <title>NAYOSO</title>
+  </head>
+
+	<body unresolved>
+	<paper-toolbar class="medium-short">
+		<paper-icon-button icon="menu"></paper-icon-button>
+		<div flex>NAYOSO</div>
+		
+		<div class="bottom fit" horizontal layout>
+		
+		  <paper-tabs selected="0" id="paper-tabs" flex horizontal center layout>
+		
+			<paper-tab horizontal center layout><h3>Blog</h3></paper-tab>
+			<paper-tab horizontal center layout><h3>My Works</h3></paper-tab>
+			<paper-tab horizontal center layout><h3>About me</h3></paper-tab>
+			
+		  </paper-tabs>
+		  
+		</div>
+	</paper-toolbar>
+	  
+	<neon-animated-pages id="content-pages" selected="0" transitions="slide-from-right">
+	    <section class="iron-selected" active="">
+	      <div layout="" vertical="" center="" center-justified="" style="background:red;">
+	        <div id="color-editor">function foo(items) {
+				var x = "All this is syntax highlighted";
+				return x;
+			}</div>
+	      </div>
+	    </section>
+	    <section class="">
+	      <div layout="" vertical="" center="" center-justified="" style="background:blue;">
+	        <div id="string-editor">red_500 #F44336</div>
+			<div id="string-output"><color name="red_500">#F44336</color></div>
+	      </div>
+	    </section>
+	    <section class="">
+	      <div layout="" vertical="" center="" center-justified="" style="background:purple;">
+	        <div>3</div>
+	      </div>
+	    </section>
+	    <section class="">
+	      <div layout="" vertical="" center="" center-justified="" style="background:orange;">
+	        <div>4</div>
+	      </div>
+	    </section>
+	    <section class="">
+	      <div layout="" vertical="" center="" center-justified="" style="background:green;">
+	        <div>5</div>
+	      </div>
+	    </section>
+    	</neon-animated-pages>
+
+	</body>
+	
+	  <script>
+		  var tabs = document.getElementById('paper-tabs');
+		  var contentPages = document.getElementById('content-pages');
+		
+		  tabs.addEventListener('iron-select', function() {
+		    contentPages.selected = tabs.selected;
+		  });
+	  </script>
+</html>
