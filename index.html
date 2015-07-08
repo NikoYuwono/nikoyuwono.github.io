@@ -21,7 +21,11 @@
     <style is="custom-style">
       neon-animatable {
         color: white;
-        height:100vh;
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);
+        @apply(--paper-font-display4);
+        height:100vh; 
+        width:100vh;
       }
       neon-animatable:nth-child(1) {
         background: var(--paper-red-500);
@@ -44,6 +48,7 @@
 	<body class="fullbleed layout vertical">
 	<div>
 	<paper-toolbar class="medium-short">
+		<paper-icon-button icon="menu"></paper-icon-button>
 		<div flex>NAYOSO</div>
 		
 		<div class="bottom fit" horizontal layout>
@@ -61,9 +66,9 @@
 	</div>
 	<div>  
 	<neon-animated-pages id="content-pages" selected="0" transitions="slide-from-right" style="height:100vh; width:100vh;">
-	    <neon-animatable>1</neon-animatable>
-        <neon-animatable>2</neon-animatable>
-        <neon-animatable>3</neon-animatable>
+	    <neon-animatable horizontal layout>1</neon-animatable>
+        <neon-animatable horizontal layout>2</neon-animatable>
+        <neon-animatable horizontal layout>3</neon-animatable>
 	</neon-animated-pages>
 	</div>
 
