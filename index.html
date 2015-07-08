@@ -24,6 +24,8 @@
         @apply(--layout-horizontal);
         @apply(--layout-center-center);
         @apply(--paper-font-display4);
+        height:100vh; 
+        width:100vh;
       }
       neon-animatable:nth-child(1) {
         background: var(--paper-red-500);
@@ -62,8 +64,8 @@
 		</div>
 	</paper-toolbar>
 	</div>
-	<div style="height:100vh; width:100vh;">  
-	<neon-animated-pages id="content-pages" selected="0" transitions="slide-from-right">
+	<div>  
+	<neon-animated-pages id="content-pages" selected="0" transitions="slide-from-right" style="height:100vh; width:100vh;">
 	    <neon-animatable>1</neon-animatable>
         <neon-animatable>2</neon-animatable>
         <neon-animatable>3</neon-animatable>
