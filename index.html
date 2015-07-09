@@ -36,6 +36,12 @@
       paper-material {
         @apply(--layout-center-center);
         @apply(--paper-font-display4);
+        display: inline-block;
+        background: white;
+        box-sizing: border-box;
+        margin: 16px;
+        padding: 16px;
+        border-radius: 2px;
       }
     </style>
     <style>
@@ -61,6 +67,9 @@
 	    <neon-animatable>
 	    	<paper-material elevation="1">
   				1
+			</paper-material>
+	    	<paper-material elevation="1">
+  				2
 			</paper-material>
 		</neon-animatable>
         <neon-animatable>2</neon-animatable>
