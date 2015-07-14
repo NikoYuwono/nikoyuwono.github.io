@@ -22,7 +22,7 @@
 
   <template>
 
-    <animated-grid id="grid"></animated-grid>
+    <blog-grid id="grid"></blog-grid>
 
   </template>
 
@@ -41,9 +41,6 @@ Polymer({
       value: function() {
         return {
           'entry': [{
-            name: 'slide-down-animation',
-            node: this.$.toolbar
-          }, {
             animatable: this.$.grid,
             type: 'entry'
           }]

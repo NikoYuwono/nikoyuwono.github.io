@@ -2,11 +2,11 @@
     <link rel="import" href="bower_components/polymer/polymer.html">
     <link rel="import" href="bower_components/paper-styles/paper-styles.html">
     <link rel="import" href="bower_components/neon-animation/neon-shared-element-animatable-behavior.html">
+<link rel="import" href="bower_components/neon-animation/animations/cascaded-animation.html">
+<link rel="import" href="bower_components/neon-animation/animations/transform-animation.html">
 </head>>
 
 <dom-module id="blog-grid">
-    
-  <link rel="import" type="css" href="style.css">
 
   <style>
     :host {
@@ -51,6 +51,37 @@
       left: calc(100% / 6);;
       width: calc(100% / 6);
       height: calc(100% / 3);
+    }
+    .red-100 {
+      background: var(--paper-red-100);
+    }
+
+    .yellow-100 {
+      background: var(--paper-yellow-100);
+    }
+
+    .blue-100 {
+      background: var(--paper-blue-100);
+    }
+
+    .green-100 {
+      background: var(--paper-green-100);
+    }
+
+    .red-300 {
+      background: var(--paper-red-300);
+    }
+
+    .yellow-300 {
+      background: var(--paper-yellow-300);
+    }
+
+    .blue-300 {
+      background: var(--paper-blue-300);
+    }
+
+    .green-300 {
+      background: var(--paper-green-300);
     }
   </style>
 
