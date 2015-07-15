@@ -10,7 +10,12 @@
     body.core-narrow {
       padding: 12px;
     }
-    
+
+    .toolbar {
+      z-index: 1;
+      @apply(--shadow-elevation-2dp);
+    }
+
     paper-tabs {
       background-color: #00bcd4;
       color: #fff;
