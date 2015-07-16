@@ -1,0 +1,66 @@
+<head>
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="../bower_components/neon-animation/animations/slide-down-animation.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animatable-behavior.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animation-runner-behavior.html">
+<link rel="import" href="../bower_components/neon-animation/neon-animated-pages.html">
+<link rel="import" href="blog-grid.html">
+<link rel="import" href="blog-fullscreen.html">
+</head>
+
+<dom-module id="blog-page">
+
+  <style>
+    :host {
+      visibility: hidden;
+      @apply(--layout-vertical);
+    }
+    .blog-grid {
+      height: calc(100% - 72px);
+      @apply(--layout-flex);
+    }
+  </style>
+
+  <template>
+    <neon-animated-pages id="pages" class="flex" selected="0">
+        <blog-grid id="blog-grid" on-tile-click="_onTileClick"></blog-grid>
+        <blog-fullscreen id="blog-fullscreen" hero-id="hero" on-click="_onFullsizeClick">
+    </neon-animated-pages>
+  </template>
+
+</dom-module>
+
+<script>
+Polymer({
+  is: 'blog-page',
+  behaviors: [
+    Polymer.NeonAnimatableBehavior,
+    Polymer.NeonAnimationRunnerBehavior
+  ],
+  properties: {
+    animationConfig: {
+      type: Object,
+      value: function() {
+        return {
+          'entry': [{
+            animatable: this.$['blog-grid'],
+            type: 'entry'
+          }]
+        };
+      }
+    }
+  },
+  show: function() {
+    this.style.visibility = 'visible';
+    this.playAnimation('entry');
+  },
+    _onTileClick: function(event) {
+        this.$['blog-fullscreen'].color = event.detail.data.color;
+        this.$.pages.selected = 1;
+    },
+    _onFullsizeClick: function(event) {
+        this.$.pages.selected = 0;
+    }
+});
+</script>

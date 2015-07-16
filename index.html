@@ -12,13 +12,12 @@
         <link rel="import" href="bower_components/font-roboto/roboto.html">
         <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
         <link rel="import" href="bower_components/paper-styles/paper-styles.html">
-        <link rel="import" href="bower_components/paper-material/paper-material.html">
         <link rel="import" href="bower_components/iron-media-query/iron-media-query.html">
         <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
         <link rel="import" href="bower_components/neon-animation/neon-animated-pages.html">
         <link rel="import" href="bower_components/neon-animation/neon-animatable.html">
-        <link rel="import" href="bower_components/neon-animation/animations/slide-from-right-animation.html">
-        <link rel="import" href="blog-page.html">
+        <link rel="import" href="bower_components/neon-animation/neon-animations.html">
+        <link rel="import" href="blog_components/blog-page.html">
         <style is="custom-style">
             neon-animatable {
                 color: white;
@@ -26,7 +25,7 @@
                 height:100vh;
             }
             neon-animatable:nth-child(1) {
-                background: var(--paper-red-500);
+                background: var(--paper-grey-200);
             }
             neon-animatable:nth-child(2) {
                 background: var(--paper-blue-500);
@@ -49,7 +48,7 @@
           </paper-tabs>
     </div>
     <div>  
-    <neon-animated-pages id="content-pages" class="flex" selected="0" transitions="slide-from-right-animation">
+    <neon-animated-pages id="content-pages" class="flex" selected="0" entry-animation="[[entryAnimation]]" exit-animation="[[exitAnimation]]">
         <neon-animatable>
             <blog-page class="fit"></blog-page>
         </neon-animatable>
@@ -65,10 +64,17 @@
         var contentPages = document.getElementById('content-pages');
 
         tabs.addEventListener('iron-select', function() {
-        contentPages.selected = tabs.selected;
+            if(contentPages.selected > tabs.selected) {
+                contentPages.entryAnimation = 'slide-from-left-animation';
+                contentPages.exitAnimation = 'slide-right-animation';
+            } else {
+                contentPages.entryAnimation = 'slide-from-right-animation';
+                contentPages.exitAnimation = 'slide-left-animation';
+            }
+            contentPages.selected = tabs.selected;
         });
         document.addEventListener('WebComponentsReady', function() {
-            document.querySelector('blog-page').show();
+            this.querySelector('blog-page').show();
         });
     </script>
 </html>
