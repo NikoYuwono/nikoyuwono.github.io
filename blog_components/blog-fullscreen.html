@@ -10,6 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/neon-animation/neon-shared-element-animatable-behavior.html">
 <link rel="import" href="../bower_components/neon-animation/neon-animations.html">
 <link rel="import" href="../bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
 
 
 <dom-module id="blog-fullscreen">
@@ -21,34 +22,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     .fixed {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: var(--paper-blue-100);
     }
 
     .card {
-      position: relative;
-      margin: 200px 100px 0;
-      height: 700px;
-    }
-      
-    .blue-100 {
-        background: var(--paper-blue-100);
-    }
-      
-    .blue-300 {
-        background: var(--paper-blue-300);
+        position: relative;
+        margin: 100px 100px 0;
+        height: 700px;
+        background: #ffffff;
     }
 
   </style>
 
   <template>
 
-    <div id="fixed" class$="[[_computeFixedBackgroundClass(color)]]"></div>
+    <div id="fixed" class$="[[_computeFixedBackgroundClass()]]"></div>
 
-    <div id="card" class$="[[_computeCardClass(color)]]"></div>
+    <paper-material id="card" class$="[[_computeCardClass()]]" elevation="3"></paper-material>
 
   </template>
 
@@ -65,10 +60,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     ],
 
     properties: {
-
-      color: {
-        type: String
-      },
 
       sharedElements: {
         type: Object,
@@ -111,12 +102,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     },
 
-    _computeCardClass: function(color) {
-      return 'card blue-300';
+    _computeCardClass: function() {
+      return 'card white';
     },
 
-    _computeFixedBackgroundClass: function(color) {
-      return 'fixed blue-100';
+    _computeFixedBackgroundClass: function() {
+      return 'fixed blue-200';
     }
 
   });

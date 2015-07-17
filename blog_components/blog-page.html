@@ -22,41 +22,47 @@
     }
   </style>
 
-  <template>
-    <neon-animated-pages id="pages" class="flex" selected="0">
-        <blog-grid id="blog-grid" on-tile-click="_onTileClick"></blog-grid>
-        <blog-fullscreen id="blog-fullscreen" hero-id="hero" on-click="_onFullsizeClick">
-    </neon-animated-pages>
-  </template>
+    <template>
+        
+        <iron-ajax id="ajax" auto url="data/blog-list.json" params='{"alt":"json", "q":"chrome"}' handle-as="json" on-response="handleResponse"></iron-ajax>
+        <neon-animated-pages id="pages" class="flex" selected="0">
+            <blog-grid id="blog-grid" on-tile-click="_onTileClick"></blog-grid>
+            <blog-fullscreen id="blog-fullscreen" hero-id="hero" on-click="_onFullsizeClick"></blog-fullscreen>
+        </neon-animated-pages>
+    </template>
 
 </dom-module>
 
 <script>
 Polymer({
-  is: 'blog-page',
-  behaviors: [
-    Polymer.NeonAnimatableBehavior,
-    Polymer.NeonAnimationRunnerBehavior
-  ],
-  properties: {
-    animationConfig: {
-      type: Object,
-      value: function() {
-        return {
-          'entry': [{
-            animatable: this.$['blog-grid'],
-            type: 'entry'
-          }]
-        };
-      }
-    }
-  },
-  show: function() {
-    this.style.visibility = 'visible';
-    this.playAnimation('entry');
-  },
+    is: 'blog-page',
+    behaviors: [
+        Polymer.NeonAnimatableBehavior,
+        Polymer.NeonAnimationRunnerBehavior
+    ],
+    properties: {
+        animationConfig: {
+          type: Object,
+          value: function() {
+            return {
+              'entry': [{
+                animatable: this.$['blog-grid'],
+                type: 'entry'
+              }]
+            };
+          }
+        }
+    },
+    show: function() {
+        this.style.visibility = 'visible';
+        this.$.ajax.generateRequest();
+    },
+    handleResponse: function() {
+        this.gridData = this.$.ajax.lastResponse;
+        Polymer.dom(this.root).querySelector('blog-grid').show(this.gridData);
+        this.playAnimation('entry');
+    },
     _onTileClick: function(event) {
-        this.$['blog-fullscreen'].color = event.detail.data.color;
         this.$.pages.selected = 1;
     },
     _onFullsizeClick: function(event) {
