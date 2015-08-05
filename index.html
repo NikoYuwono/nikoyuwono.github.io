@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
 
         <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="import" href="bower_components/polymer/polymer.html">
         <link rel="import" href="bower_components/iron-icons/iron-icons.html">
         <link rel="import" href="bower_components/font-roboto/roboto.html">
@@ -17,64 +19,81 @@
         <link rel="import" href="bower_components/neon-animation/neon-animated-pages.html">
         <link rel="import" href="bower_components/neon-animation/neon-animatable.html">
         <link rel="import" href="bower_components/neon-animation/neon-animations.html">
-        <link rel="import" href="blog_components/blog-page.html">
-        <style is="custom-style">
-            neon-animatable {
-                color: white;
-                @apply(--layout-horizontal);
-                height:100vh;
-            }
-            neon-animatable:nth-child(1) {
-                background: var(--paper-grey-200);
-            }
-            neon-animatable:nth-child(2) {
-                background: var(--paper-blue-500);
-            }
-            neon-animatable:nth-child(3) {
-                background: var(--paper-orange-500);
-            }
-            
-        </style>
+        <link rel="import" href="blog/blog-page.html">
     </head>
 
-    <body class="fullbleed layout vertical">
-    <div class="toolbar">
-          <paper-tabs selected="0" id="paper-tabs" class="flex horizontal center layout">
+    <body class="fullbleed">
+        <div id="scroll-animate">
+          <div id="scroll-animate-main">
+            <div class="wrapper-parallax">
+              <header>
+                <div class="profile-picture"></div>
+                <h1>
+                  Hi I'm Niko and this is my development blog
+                </h1>
+                <div class="icon-container">
+                    <i class="fa fa-twitter fa-2x fa-inverse"></i>
+                    <i class="fa fa-stack-overflow fa-2x fa-inverse"></i>
+                    <i class="fa fa-github fa-2x fa-inverse"></i>
+                    <i class="fa fa-envelope fa-2x fa-inverse"></i>
+                </div>
+              </header>
 
-            <paper-tab horizontal center layout><h3>Blog</h3></paper-tab>
-            <paper-tab horizontal center layout><h3>Works</h3></paper-tab>
-            <paper-tab horizontal center layout><h3>About me</h3></paper-tab>
+              <section class="content">
+                <blog-page class="fit"></blog-page>
+              </section>
 
-          </paper-tabs>
-    </div>
-    <div>  
-    <neon-animated-pages id="content-pages" class="flex" selected="0" entry-animation="[[entryAnimation]]" exit-animation="[[exitAnimation]]">
-        <neon-animatable>
-            <blog-page class="fit"></blog-page>
-        </neon-animatable>
-        <neon-animatable>2</neon-animatable>
-        <neon-animatable>3</neon-animatable>
-    </neon-animated-pages>
-    </div>
-
+              <footer>
+                <h1>Footer</h1>
+              </footer>
+            </div>
+          </div>
+        </div>
     </body>
 	
     <script>
-        var tabs = document.getElementById('paper-tabs');
-        var contentPages = document.getElementById('content-pages');
-
-        tabs.addEventListener('iron-select', function() {
-            if(contentPages.selected > tabs.selected) {
-                contentPages.entryAnimation = 'slide-from-left-animation';
-                contentPages.exitAnimation = 'slide-right-animation';
-            } else {
-                contentPages.entryAnimation = 'slide-from-right-animation';
-                contentPages.exitAnimation = 'slide-left-animation';
-            }
-            contentPages.selected = tabs.selected;
-        });
         document.addEventListener('WebComponentsReady', function() {
             this.querySelector('blog-page').show();
+        });
+        function scrollFooter(scrollY, heightFooter)
+        {
+            if(scrollY >= heightFooter)
+            {
+                $('footer').css({
+                    'bottom' : '0px'
+                });
+            }
+            else
+            {
+                $('footer').css({
+                    'bottom' : '-' + heightFooter + 'px'
+                });
+            }
+        }
+
+        $(window).load(function(){
+            var footerHeight        = $('footer').height(),
+                heightDocument      = ($('header').height()) + ($('.content').height()) + ($('footer').height()) - 20;
+
+            $('#scroll-animate, #scroll-animate-main').css({
+                'height' :  heightDocument + 'px'
+            });
+
+            scrollFooter(window.scrollY, footerHeight);
+
+            window.onscroll = function(){
+                var scroll = window.scrollY;
+
+                $('#scroll-animate-main').css({
+                    'top' : '-' + scroll + 'px'
+                });
+
+                $('header').css({
+                    'background-position-y' : 50 - (scroll * 100 / heightDocument) + '%'
+                });
+
+                scrollFooter(scroll, footerHeight);
+            }
         });
     </script>
 </html>

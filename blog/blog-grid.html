@@ -38,7 +38,7 @@
 
   <template>
     <template is="dom-repeat" items="[[gridData]]">
-        <paper-material class="tile">
+        <paper-material elevation="1" class="tile">
             <span class="grid-title">[[item.title]]</span>
         </paper-material>
     </template>
@@ -105,7 +105,9 @@
         });
     },
     listeners: {
-      click: '_onClick'
+        click: '_onClick',
+        mouseover: '_onMouseOver',
+        mouseout: '_onMouseOut',
     },
     _onClick: function(event) {
       var target = event.target;
@@ -126,6 +128,14 @@
         tile: target,
         data: target._templateInstance.item
       });
+    },
+    _onMouseOver: function(event) {
+        var target = event.target;
+        target.elevation = 3;
+    },
+    _onMouseOut: function(event) {
+        var target = event.target;
+        target.elevation = 1;
     }
   });
 </script>
