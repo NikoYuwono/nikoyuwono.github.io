@@ -32,20 +32,16 @@
                   Hi I'm Niko and this is my development blog
                 </h1>
                 <div class="icon-container">
-                    <i class="fa fa-twitter fa-2x fa-inverse"></i>
-                    <i class="fa fa-stack-overflow fa-2x fa-inverse"></i>
-                    <i class="fa fa-github fa-2x fa-inverse"></i>
-                    <i class="fa fa-envelope fa-2x fa-inverse"></i>
+                    <i class="fa fa-twitter fa-2x fa-inverse hvr-grow"></i>
+                    <i class="fa fa-stack-overflow fa-2x fa-inverse hvr-grow"></i>
+                    <i class="fa fa-github fa-2x fa-inverse hvr-grow"></i>
+                    <i class="fa fa-envelope fa-2x fa-inverse hvr-grow"></i>
                 </div>
               </header>
 
               <section class="content">
                 <blog-page class="fit"></blog-page>
               </section>
-
-              <footer>
-                <h1>Footer</h1>
-              </footer>
             </div>
           </div>
         </div>
@@ -55,31 +51,13 @@
         document.addEventListener('WebComponentsReady', function() {
             this.querySelector('blog-page').show();
         });
-        function scrollFooter(scrollY, heightFooter)
-        {
-            if(scrollY >= heightFooter)
-            {
-                $('footer').css({
-                    'bottom' : '0px'
-                });
-            }
-            else
-            {
-                $('footer').css({
-                    'bottom' : '-' + heightFooter + 'px'
-                });
-            }
-        }
 
         $(window).load(function(){
-            var footerHeight        = $('footer').height(),
-                heightDocument      = ($('header').height()) + ($('.content').height()) + ($('footer').height()) - 20;
+            var heightDocument      = ($('header').height()) + ($('.content').height()) - 20;
 
             $('#scroll-animate, #scroll-animate-main').css({
                 'height' :  heightDocument + 'px'
             });
-
-            scrollFooter(window.scrollY, footerHeight);
 
             window.onscroll = function(){
                 var scroll = window.scrollY;
@@ -91,8 +69,6 @@
                 $('header').css({
                     'background-position-y' : 50 - (scroll * 100 / heightDocument) + '%'
                 });
-
-                scrollFooter(scroll, footerHeight);
             }
         });
     </script>
