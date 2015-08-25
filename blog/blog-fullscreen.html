@@ -29,19 +29,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         width: 100vw;
         background: var(--paper-blue-100);
     }
+      
+    .fixed h1 {
+        font-size: 250%;
+        text-align: center;
+        color: black;
+        position: fixed;
+        top: 50px;
+        opacity:0;
+        transition: opacity 0.8s;
+    }
+      
+    .blog-title {   
+        opacity:0;
+        transition: opacity 0.8s;
+    }
 
     .card {
         position: relative;
-        margin: 100px 100px 0;
+        top: 0;
+        left: 0;
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-top: -100px;
         height: 700px;
         background: #ffffff;
     }
-
   </style>
 
   <template>
 
-    <div id="fixed" class$="[[_computeFixedBackgroundClass()]]"></div>
+    <div id="fixed" class$="[[_computeFixedBackgroundClass()]]">
+      <h1 id="blog-title">[[title]]</h1>
+    </div>
 
     <paper-material id="card" class$="[[_computeCardClass()]]" elevation="3"></paper-material>
 
@@ -50,7 +70,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 </dom-module>
 
 <script>
-
+    function showText(id, delay) {
+        var elem = document.getElementById(id);
+        setTimeout(function () {
+            elem.style.opacity = 1;
+        }, delay * 1000)
+    }
+    
+    function hideText(id) {
+        console.log("Will hide : "+id);
+        var elem = document.getElementById(id);
+        elem.style.opacity = 0;
+    }
+    
   Polymer({
 
     is: 'blog-fullscreen',
@@ -61,6 +93,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     properties: {
 
+      title: {
+        type: String,
+        observer: '_titleChanged'
+      },
+        
       sharedElements: {
         type: Object,
         value: function() {
@@ -99,7 +136,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           }
         }
       }
-
     },
 
     _computeCardClass: function() {
@@ -108,8 +144,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     _computeFixedBackgroundClass: function() {
       return 'fixed blue-200';
+    },
+    
+    _titleChanged: function() {
+        showText('blog-title', 1);
+    },
+      
+    hideTitleText: function() {
+        hideText('blog-title');
     }
-
   });
 
 </script>

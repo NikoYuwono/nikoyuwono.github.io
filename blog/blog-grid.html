@@ -33,6 +33,11 @@
     }
     .grid-title {
         color: black;
+        margin-bottom: 5px;
+        font-size: 110%;
+    }
+    .grid-preview {
+        color: darkgrey;
     }
   </style>
 
@@ -40,6 +45,7 @@
     <template is="dom-repeat" items="[[gridData]]">
         <paper-material elevation="1" class="tile">
             <span class="grid-title">[[item.title]]</span>
+            <span class="grid-preview">[[item.preview]]</span>
         </paper-material>
     </template>
 

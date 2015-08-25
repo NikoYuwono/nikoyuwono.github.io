@@ -1,14 +1,16 @@
 [
     {
-        "title": "Playing with Canvas",
-        "content": "Canvas"
+        "id": "1",
+        "title": "Flavoring Your Gradle",
+        "preview": "How to use build flavor to create customized version of your application"
     },
     {
+        "id": "2",
         "title": "Android Studio",
-        "content": "Android Studio"
+        "preview": "Android Studio"
     },
     {
         "title": "Boosting Performance",
-        "content": "Performance"
+        "preview": "Performance"
     }
 ]

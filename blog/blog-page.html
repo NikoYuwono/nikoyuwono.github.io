@@ -1,10 +1,7 @@
 <head>
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/paper-styles/paper-styles.html">
-<link rel="import" href="../bower_components/neon-animation/animations/slide-down-animation.html">
-<link rel="import" href="../bower_components/neon-animation/neon-animatable-behavior.html">
 <link rel="import" href="../bower_components/neon-animation/neon-animation-runner-behavior.html">
-<link rel="import" href="../bower_components/neon-animation/neon-animated-pages.html">
 <link rel="import" href="blog-grid.html">
 <link rel="import" href="blog-fullscreen.html">
 </head>
@@ -63,10 +60,12 @@ Polymer({
         this.playAnimation('entry');
     },
     _onTileClick: function(event) {
+        this.$['blog-fullscreen'].title = event.detail.data.title
         this.$.pages.selected = 1;
     },
     _onFullsizeClick: function(event) {
         this.$.pages.selected = 0;
+        this.$['blog-fullscreen'].hideTitleText();
     }
 });
 </script>
