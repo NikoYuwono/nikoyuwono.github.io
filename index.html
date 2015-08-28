@@ -15,30 +15,34 @@
         <link rel="import" href="bower_components/neon-animation/neon-animations.html">
         <link rel="import" href="bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
         <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="bower_components/iron-media-query/iron-media-query.html">
         <link rel="import" href="blog/blog-page.html">
     </head>
 
     <body class="fullbleed">
-        <paper-scroll-header-panel condenses>
-            <paper-toolbar class="really-tall">
-                <div class="top toolbar-content-container">
-                    <div class="profile-picture"></div>
-                    <h1 class="title">
-                      Hi I'm Niko and this is my development blog
-                    </h1>
-                    <div class="icon-container">
-                        <i class="fa fa-twitter fa-2x fa-inverse hvr-grow"></i>
-                        <i class="fa fa-stack-overflow fa-2x fa-inverse hvr-grow"></i>
-                        <i class="fa fa-github fa-2x fa-inverse hvr-grow"></i>
-                        <i class="fa fa-envelope fa-2x fa-inverse hvr-grow"></i>
+        <template is="dom-bind">
+            <iron-media-query query="(min-width: 800px)" query-matches="{{bigScreen}}"></iron-media-query>
+            <paper-scroll-header-panel condenses$="{{bigScreen}}">
+                <paper-toolbar class="really-tall">
+                    <div class="top toolbar-content-container">
+                        <div class="profile-picture"></div>
+                        <h1 class="title">
+                          Hi I'm Niko and this is my development blog
+                        </h1>
+                        <div class="icon-container">
+                            <i class="fa fa-twitter fa-2x fa-inverse hvr-grow"></i>
+                            <i class="fa fa-stack-overflow fa-2x fa-inverse hvr-grow"></i>
+                            <i class="fa fa-github fa-2x fa-inverse hvr-grow"></i>
+                            <i class="fa fa-envelope fa-2x fa-inverse hvr-grow"></i>
+                        </div>
                     </div>
-                </div>
-            </paper-toolbar>
+                </paper-toolbar>
 
-            <div class="content">
-                <blog-page class="fit"></blog-page>
-            </div>
-        </paper-scroll-header-panel>
+                <div class="content">
+                    <blog-page class="fit"></blog-page>
+                </div>
+            </paper-scroll-header-panel>
+        </template>
     </body>
 	
     <script>
