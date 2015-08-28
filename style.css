@@ -49,6 +49,10 @@
       background: #ededed;
       position: relative;
       z-index: 2;
+      -webkit-transform:translateZ(2px);
+      -moz-transform:translateZ(2px);
+      -o-transform:translateZ(2px);
+      transform:translateZ(2px);
     }
 
     h1{
