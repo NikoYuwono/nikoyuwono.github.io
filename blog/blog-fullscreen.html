@@ -31,7 +31,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
       
     .fixed h1 {
-        font-size: 250%;
         text-align: center;
         color: black;
         position: fixed;
@@ -51,19 +50,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         left: 0;
         margin-left: 10%;
         margin-right: 10%;
-        margin-top: -100px;
         height: 700px;
         background: #ffffff;
+    }
+      
+    .big {
+        margin-top: -100px;
+    }
+      
+    .big {
+        margin-top: -50px;
+    }
+      
+    .title-big {
+        font-size: 250%;
+    }
+      
+    .title-small {
+        font-size: 150%;
     }
   </style>
 
   <template>
-
+    <iron-media-query query="(min-width: 800px)" query-matches="{{bigScreen}}"></iron-media-query>
     <div id="fixed" class$="[[_computeFixedBackgroundClass()]]">
-      <h1 id="blog-title">[[title]]</h1>
+      <h1 id="blog-title" class$="[[_computeTitleClass(bigScreen)]]">[[title]]</h1>
     </div>
 
-    <paper-material id="card" class$="[[_computeCardClass()]]" elevation="3"></paper-material>
+    <paper-material id="card" class$="[[_computeCardClass(bigScreen)]]" elevation="3"></paper-material>
 
   </template>
 
@@ -138,12 +152,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     },
 
-    _computeCardClass: function() {
-      return 'card white';
+    _computeCardClass: function(isBigScreen) {
+      return ('card white ' + (isBigScreen ? "big" : "small"));
     },
 
     _computeFixedBackgroundClass: function() {
       return 'fixed blue-200';
+    },
+      
+    _computeTitleClass: function(isBigScreen) {
+      return ('title-' + (isBigScreen ? "big" : "small"));
     },
     
     _titleChanged: function() {
