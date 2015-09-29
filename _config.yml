@@ -1,0 +1,25 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
+# Setup
+title:            Niko Yuwono
+description:      'My blog about Computer Vision and Android Development.</br>Follow me <a href="https://twitter.com/niko_yuwono" target="_blank">@niko_yuwono</a>.'
+url:              http://nikoyuwono.github.io/dev-blog
+baseurl:          /
+
+author:
+  name:           'Niko Yuwono'
+  url:            https://twitter.com/niko_yuwono
+
+paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           https://github.com/NikoYuwono/dev-blog
