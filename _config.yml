@@ -19,7 +19,9 @@ author:
 paginate:         1
 
 # Custom vars
-version:          2.1.0
+version:          0.1
+
+excerpt_separator: "<!-- more -->" # Adds read more feature
 
 github:
   repo:           https://github.com/NikoYuwono/nikoyuwono.github.io
