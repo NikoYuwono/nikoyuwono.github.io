@@ -4,7 +4,6 @@ highlighter:      pygments
 
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
 
 # Setup
 title:            Niko Yuwono
@@ -16,7 +15,7 @@ author:
   name:           'Niko Yuwono'
   url:            https://twitter.com/niko_yuwono
 
-paginate:         5
+paginate:         1
 
 # Custom vars
 version:          2.1.0
@@ -24,5 +23,12 @@ version:          2.1.0
 github:
   repo:           https://github.com/NikoYuwono/dev-blog
   
+
+# This is the list of pages to include in the header of the website.
+pages_list:       
+  About: '/about/'
+  
+# Allow URL Redirects: 
+#  * https://help.github.com/articles/redirects-on-github-pages
 gems:
     - jekyll-redirect-from
