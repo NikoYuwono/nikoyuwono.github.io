@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: dev-blog/about/
+redirect_from: /about/
 title: Hello! I'm Niko Yuwono
 ---
 
