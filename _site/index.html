@@ -16,14 +16,30 @@
   </title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="http://nikoyuwono.github.io/dev-blog/public/css/poole.css">
-  <link rel="stylesheet" href="http://nikoyuwono.github.io/dev-blog/public/css/syntax.css">
-  <link rel="stylesheet" href="http://nikoyuwono.github.io/dev-blog/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://nikoyuwono.github.io/dev-blog/public/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="http://nikoyuwono.github.io/dev-blog/public/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="/public/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/public/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/public/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/public/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/public/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/public/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/public/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/public/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/public/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/public/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/public/favicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/public/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/public/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/public/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/public/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-TileImage" content="/public/favicons/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
@@ -36,7 +52,7 @@
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <h1>
-        <a href="http://nikoyuwono.github.io/dev-blog/">
+        <a href="/">
           Niko Yuwono
         </a>
       </h1>
@@ -44,7 +60,7 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item" href="http://nikoyuwono.github.io/dev-blog/">Home</a>
+      <a class="sidebar-nav-item active" href="/">Home</a>
 
       
 
@@ -67,7 +83,7 @@
         
       
 
-      <a class="sidebar-nav-item" href="https://github.com/NikoYuwono/dev-blog">GitHub project</a>
+      <a class="sidebar-nav-item" href="https://github.com/NikoYuwono/nikoyuwono.github.io">GitHub project</a>
     </nav>
 
     <p>&copy; 2015. All rights reserved.</p>
@@ -80,221 +96,120 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/2013/12/28/introducing-hyde/">
-        Introducing Hyde
+      <a href="/2015/10/05/receipt-scanner/">
+        Receipt Scanner (Text Detection)
       </a>
     </h1>
 
-    <span class="post-date">28 Dec 2013</span>
+    <span class="post-date">05 Oct 2015</span>
 
-    <p>Hyde is a brazen two-column <a href="http://jekyllrb.com">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. It&#39;s based on <a href="http://getpoole.com">Poole</a>, the Jekyll butler.</p>
+    <p>Text extraction from image becomes more popular these days. For example text translation from images, receipt scanner, paper scanner, etc.<br>
+But the question is, how is it done? First, to recognize what texts inside the image we need to know where the texts are <strong>located</strong> and that&#39;s our topic today.</p>
 
-<h3>Built on Poole</h3>
-
-<p>Poole is the Jekyll Butler, serving as an upstanding and effective foundation for Jekyll themes by <a href="https://twitter.com/mdo">@mdo</a>. Poole, and every theme built on it (like Hyde here) includes the following:</p>
-
-<ul>
-<li>Complete Jekyll setup included (layouts, config, <a href="/404">404</a>, <a href="/atom.xml">RSS feed</a>, posts, and <a href="/about">example page</a>)</li>
-<li>Mobile friendly design and development</li>
-<li>Easily scalable text and component sizing with <code>rem</code> units in the CSS</li>
-<li>Support for a wide gamut of HTML elements</li>
-<li>Related posts (time-based, because Jekyll) below each post</li>
-<li>Syntax highlighting, courtesy Pygments (the Python-based code snippet highlighter)</li>
-</ul>
-
-<h3>Hyde features</h3>
-
-<p>In addition to the features of Poole, Hyde adds the following:</p>
-
-<ul>
-<li>Sidebar includes support for textual modules and a dynamically generated navigation with active link support</li>
-<li>Two orientations for content and sidebar, default (left sidebar) and <a href="https://github.com/poole/lanyon#reverse-layout">reverse</a> (right sidebar), available via <code>&lt;body&gt;</code> classes</li>
-<li><a href="https://github.com/poole/hyde#themes">Eight optional color schemes</a>, available via <code>&lt;body&gt;</code> classes</li>
-</ul>
-
-<p><a href="https://github.com/poole/hyde#readme">Head to the readme</a> to learn more.</p>
-
-<h3>Browser support</h3>
-
-<p>Hyde is by preference a forward-thinking project. In addition to the latest versions of Chrome, Safari (mobile and desktop), and Firefox, it is only compatible with Internet Explorer 9 and above.</p>
-
-<h3>Download</h3>
-
-<p>Hyde is developed on and hosted with GitHub. Head to the <a href="https://github.com/poole/hyde">GitHub repository</a> for downloads, bug reports, and features requests.</p>
-
-<p>Thanks!</p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2012/02/07/example-content/">
-        Example content
-      </a>
-    </h1>
-
-    <span class="post-date">07 Feb 2012</span>
-
-    <div class="message">
-  Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
-</div>
-
-<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. <em>Aenean eu leo quam.</em> Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-
-<blockquote>
-<p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-</blockquote>
-
-<p>Etiam porta <strong>sem malesuada magna</strong> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-
-<h2>Inline HTML elements</h2>
-
-<p>HTML defines a long list of available inline tags, a complete list of which can be found on the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Mozilla Developer Network</a>.</p>
-
-<ul>
-<li><strong>To bold text</strong>, use <code>&lt;strong&gt;</code>.</li>
-<li><em>To italicize text</em>, use <code>&lt;em&gt;</code>.</li>
-<li>Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> should use <code>&lt;abbr&gt;</code>, with an optional <code>title</code> attribute for the full phrase.</li>
-<li>Citations, like <cite>&mdash; Mark otto</cite>, should use <code>&lt;cite&gt;</code>.</li>
-<li><del>Deleted</del> text should use <code>&lt;del&gt;</code> and <ins>inserted</ins> text should use <code>&lt;ins&gt;</code>.</li>
-<li>Superscript <sup>text</sup> uses <code>&lt;sup&gt;</code> and subscript <sub>text</sub> uses <code>&lt;sub&gt;</code>.</li>
-</ul>
-
-<p>Most of these elements are styled by browsers with few modifications on our part.</p>
-
-<h2>Heading</h2>
-
-<p>Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-
-<h3>Code</h3>
-
-<p>Cum sociis natoque penatibus et magnis dis <code>code element</code> montes, nascetur ridiculus mus.</p>
-
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Example can be run directly in your JavaScript console</span>
-
-<span class="c1">// Create a function that takes two arguments and returns the sum of those arguments</span>
-<span class="kd">var</span> <span class="nx">adder</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Function</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;return a + b&quot;</span><span class="p">);</span>
-
-<span class="c1">// Call the function</span>
-<span class="nx">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
-<span class="c1">// &gt; 8</span></code></pre></div>
-
-<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-
-<h3>Gists via GitHub Pages</h3>
-
-<p>Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.</p>
-
-<p><noscript><pre>400: Invalid request
-</pre></noscript><script src="https://gist.github.com/5555251.js?file=gist.md"> </script></p>
-
-<p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.</p>
-
-<h3>Lists</h3>
-
-<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-
-<ul>
-<li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-<li>Donec id elit non mi porta gravida at eget metus.</li>
-<li>Nulla vitae elit libero, a pharetra augue.</li>
-</ul>
-
-<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+<p>My approaches to detect where the texts are:  </p>
 
 <ol>
-<li>Vestibulum id ligula porta felis euismod semper.</li>
-<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-<li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
+<li>Change color space from BGR (or RGB) to Gray<br></li>
+<li>Apply Morphological Gradient<br></li>
+<li>Apply threshold to convert to binary image</li>
+<li>Apply Closing Morphological Transformation<br></li>
+<li>Find contours and filter it<br></li>
 </ol>
 
-<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+<p>Let&#39;s take a look at each step in detail.</p>
 
-<dl>
-  <dt>HyperText Markup Language (HTML)</dt>
-  <dd>The language used to describe and define the content of a Web page</dd>
+<h3>Original Image</h3>
 
-  <dt>Cascading Style Sheets (CSS)</dt>
-  <dd>Used to describe the appearance of Web content</dd>
+<p><img src="/assets/text_detection/original.jpg" height="75%" width="75%" style="margin-left=auto;margin-right-auto;"></p>
 
-  <dt>JavaScript (JS)</dt>
-  <dd>The programming language used to build advanced Web sites and applications</dd>
-</dl>
+<h3>Change color space from BGR to Gray.</h3>
 
-<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+<p>In image processing it&#39;s pretty common to change the color space from BGR (or RGB) to Gray. One of the reason is luminance is by far more important in distinguishing visual features compared to chrominance (<a href="https://www.quora.com/Computer-Vision/If-you-had-to-choose-would-you-rather-go-without-luminance-or-chrominance/answer/John-Zhang">Good explanation by John Zhang</a>).<br>
+To convert image from BGR (or RGB) to Gray color space in OpenCV is quite simple.  </p>
 
-<h3>Images</h3>
-
-<p>Quisque consequat sapien eget quam rhoncus, sit amet laoreet diam tempus. Aliquam aliquam metus erat, a pulvinar turpis suscipit at.</p>
-
-<p><img src="http://placehold.it/800x400" alt="placeholder" title="Large example image">
-<img src="http://placehold.it/400x200" alt="placeholder" title="Medium example image">
-<img src="http://placehold.it/200x200" alt="placeholder" title="Small example image"></p>
-
-<h3>Tables</h3>
-
-<p>Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Upvotes</th>
-      <th>Downvotes</th>
-    </tr>
-  </thead>
-  <tfoot>
-    <tr>
-      <td>Totals</td>
-      <td>21</td>
-      <td>23</td>
-    </tr>
-  </tfoot>
-  <tbody>
-    <tr>
-      <td>Alice</td>
-      <td>10</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <td>Bob</td>
-      <td>4</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>Charlie</td>
-      <td>7</td>
-      <td>9</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
-
-<hr>
-
-<p>Want to see something else added? <a href="https://github.com/poole/poole/issues/new">Open an issue.</a></p>
-
-  </div>
+<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">Mat</span> <span class="n">original</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s">&quot;receipt.jpg&quot;</span><span class="p">);</span>
+<span class="n">Mat</span> <span class="n">gray</span><span class="p">;</span>
+<span class="n">cvtColor</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">gray</span><span class="p">,</span> <span class="n">CV_BGR2GRAY</span><span class="p">);</span></code></pre></div>
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2012/02/06/whats-jekyll/">
-        What's Jekyll?
-      </a>
-    </h1>
 
-    <span class="post-date">06 Feb 2012</span>
+<p>Result :<br>
+<img src="/assets/text_detection/gray.jpg" height="75%" width="75%" style="margin-left=auto;margin-right-auto;"></p>
 
-    <p><a href="http://jekyllrb.com">Jekyll</a> is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From <a href="https://github.com/mojombo/jekyll/blob/master/README.markdown">the project&#39;s readme</a>:</p>
+<h3>Apply Morphological Gradient.</h3>
 
-<blockquote>
-<p>Jekyll is a simple, blog aware, static site generator. It takes a template directory [...] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.</p>
-</blockquote>
+<p>Morphological Gradient is a combination from dilation and erosion. Where dilation will act as local maximum operator and erosion as local minimum operator.</p>
 
-<p>It&#39;s an immensely useful tool and one we encourage you to use here with Hyde.</p>
+<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">Mat</span> <span class="n">gradient</span><span class="p">;</span>
+<span class="n">Mat</span> <span class="n">morphStructure</span> <span class="o">=</span> <span class="n">getStructuringElement</span><span class="p">(</span><span class="n">MORPH_ELLIPSE</span><span class="p">,</span> <span class="n">Size</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+<span class="n">morphologyEx</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="n">gradient</span><span class="p">,</span> <span class="n">MORPH_GRADIENT</span><span class="p">,</span> <span class="n">morphStructure</span><span class="p">);</span></code></pre></div>
+  
 
-<p>Find out more by <a href="https://github.com/mojombo/jekyll">visiting the project on GitHub</a>.</p>
+<p>Which morphStructure is kernel of structuring element that will define how the gradient will be calculated.<br>
+To understand more about dilaton and erosion you can check really nice demonstration in OpenCV&#39;s example <a href="http://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html#gsc.tab=0">here</a></p>
+
+<p>Result :<br>
+<img src="/assets/text_detection/gradient.jpg" height="75%" width="75%" style="margin-left=auto;margin-right-auto;"></p>
+
+<h3>Apply threshold to convert to binary image</h3>
+
+<p>I&#39;m using Otsu algorithm to choose the optimal threshold value to convert the processed image to binary image.</p>
+
+<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">Mat</span> <span class="n">binary</span><span class="p">;</span>
+<span class="n">threshold</span><span class="p">(</span><span class="n">gradient</span><span class="p">,</span> <span class="n">binary</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">255.0</span><span class="p">,</span> <span class="n">THRESH_BINARY</span> <span class="o">|</span> <span class="n">THRESH_OTSU</span><span class="p">);</span></code></pre></div>
+  
+
+<p>Result :<br>
+<img src="/assets/text_detection/binary.jpg" height="75%" width="75%" style="margin-left=auto;margin-right-auto;"></p>
+
+<h3>Apply Closing Morphological Transformation</h3>
+
+<p>And the last one before we can find the contours we need to do Closing Morphological Transformation which is dilation followed by erosion that will close small holes between words so we can group it into a sentence horizontally.</p>
+
+<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="n">Mat</span> <span class="n">closed</span><span class="p">;</span>
+<span class="n">morphStructure</span> <span class="o">=</span> <span class="n">getStructuringElement</span><span class="p">(</span><span class="n">MORPH_RECT</span><span class="p">,</span> <span class="n">Size</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>
+<span class="n">morphologyEx</span><span class="p">(</span><span class="n">binary</span><span class="p">,</span> <span class="n">closed</span><span class="p">,</span> <span class="n">MORPH_CLOSE</span><span class="p">,</span> <span class="n">morphStructure</span><span class="p">);</span></code></pre></div>
+  
+
+<p>Result :<br>
+<img src="/assets/text_detection/closed.jpg" height="75%" width="75%" style="margin-left=auto;margin-right-auto;"></p>
+
+<h3>Find contours and filter it</h3>
+
+<p>After all the processing it&#39;s time to find contours and filter it so we finally can locate where the texts are located.</p>
+
+<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="c1">// Find contours</span>
+<span class="n">Mat</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">Mat</span><span class="o">::</span><span class="n">zeros</span><span class="p">(</span><span class="n">bw</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">CV_8UC1</span><span class="p">);</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;&gt;</span> <span class="n">contours</span><span class="p">;</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">Vec4i</span><span class="o">&gt;</span> <span class="n">hierarchy</span><span class="p">;</span>
+<span class="n">findContours</span><span class="p">(</span><span class="n">connected</span><span class="p">,</span> <span class="n">contours</span><span class="p">,</span> <span class="n">hierarchy</span><span class="p">,</span> <span class="n">CV_RETR_CCOMP</span><span class="p">,</span> <span class="n">CV_CHAIN_APPROX_SIMPLE</span><span class="p">,</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span>
+<span class="c1">// Filter contours</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">=</span> <span class="n">hierarchy</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="p">{</span>
+    <span class="n">Rect</span> <span class="n">rect</span> <span class="o">=</span> <span class="n">boundingRect</span><span class="p">(</span><span class="n">contours</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="c1">// Ignore if the rect is too small</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">rect</span><span class="p">.</span><span class="n">height</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">||</span> <span class="n">rect</span><span class="p">.</span><span class="n">width</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">continue</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">Mat</span> <span class="n">maskROI</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">rect</span><span class="p">);</span>
+    <span class="n">maskROI</span> <span class="o">=</span> <span class="n">Scalar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">drawContours</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">contours</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">Scalar</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">CV_FILLED</span><span class="p">);</span>
+    <span class="c1">// Calculate ratio of non-zero pixels in the filled region</span>
+    <span class="kt">double</span> <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">countNonZero</span><span class="p">(</span><span class="n">maskROI</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">rect</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="n">rect</span><span class="p">.</span><span class="n">height</span><span class="p">);</span>
+
+    <span class="c1">// If the ration is bigger than 45% we assume it contains texts</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">r</span> <span class="o">&gt;</span> <span class="mf">0.45</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">rectangle</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">rect</span><span class="p">,</span> <span class="n">Scalar</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+  
+
+<p>Result :<br>
+<img src="/assets/text_detection/result.jpg" height="75%" width="75%" style="margin-left=auto;margin-right-auto;"></p>
+
+<p>That&#39;s all! I hope my post can help you to understand how to detect texts inside an image.<br>
+For recognizing the texts I will write a post about it in the future.<br>
+If you have any question, send me a tweet!</p>
 
   </div>
   
