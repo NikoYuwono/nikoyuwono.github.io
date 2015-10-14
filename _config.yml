@@ -8,7 +8,7 @@ relative_permalinks: true
 
 # Setup
 title:            Niko Yuwono
-description:      'My blog about Computer Vision and Android Development.</br>Follow me <a href="https://twitter.com/niko_yuwono" target="_blank">@niko_yuwono</a>.'
+description:      'Hello, I''m Niko Yuwono. I''m a software engineer based in Tokyo, Japan and this is my blog about Computer Vision and Android Development.'
 url:              http://nikoyuwono.github.io/
 baseurl:          /
 
@@ -23,8 +23,10 @@ version:          0.1
 
 excerpt_separator: "<!-- more -->" # Adds read more feature
 
-github:
-  repo:           https://github.com/NikoYuwono
+github:           https://github.com/NikoYuwono
+stackoverflow:    http://stackoverflow.com/users/1545363/niko-yuwono
+linkedin:         https://www.linkedin.com/in/nikoyuwono
+twitter:          https://twitter.com/niko_yuwono
   
 # Allow URL Redirects: 
 #  * https://help.github.com/articles/redirects-on-github-pages

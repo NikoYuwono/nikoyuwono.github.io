@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Receipt Scanner (Text Detection)
+image: /assets/text_detection/result.jpg
 ---
 
 
@@ -101,7 +102,7 @@ Result :
 
 That's all! I hope my post can help you to understand how to detect texts inside an image.  
 For recognizing the texts I will write a post about it in the future.  
-If you have any question, send me a tweet!
+If you have any question, <a href="https://twitter.com/intent/tweet?screen_name=niko_yuwono">send me a tweet!</a> If you like this post you can share it with your friends using share buttons below.
 
   
 [1]: https://www.quora.com/Computer-Vision/If-you-had-to-choose-would-you-rather-go-without-luminance-or-chrominance/answer/John-Zhang
