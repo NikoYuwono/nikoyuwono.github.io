@@ -168,8 +168,8 @@ pre {
   line-height: 1.4;
   white-space: pre;
   white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
+/*  word-break: break-all;*/
+/*  word-wrap: break-word;*/
   background-color: #f9f9f9;
 }
 pre code {
@@ -184,8 +184,16 @@ pre code {
   margin-bottom: 1rem;
   border-radius: 4px;
 }
+.highlight pre code * {
+  white-space: nowrap;    // this sets all children inside to nowrap
+}
+
 .highlight pre {
-  margin-bottom: 0;
+  overflow-x: auto;       // this sets the scrolling in x
+}
+
+.highlight pre code {
+  white-space: pre;       // forces <code> to respect <pre> formatting
 }
 
 /* Gist via GitHub Pages */

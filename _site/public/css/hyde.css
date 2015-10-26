@@ -56,9 +56,19 @@ html {
 .sidebar {
   text-align: center;
   padding: 2rem 1rem;
-  color: rgba(255,255,255,.5);
-  background-color: #202020;
+  background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+        url(/assets/images/kanazawa.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
+
+.darker {
+  background-color: #000000;
+  opacity: 0.5;
+}
+
 @media (min-width: 48em) {
   .sidebar {
     position: fixed;
@@ -66,10 +76,13 @@ html {
     left: 0;
     bottom: 0;
     width: 18rem;
-    background-image: url(/assets/images/kanazawa.jpg);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+  }
+  .darker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 18rem;
   }
 }
 
@@ -99,14 +112,8 @@ html {
     color: whitesmoke;
 }
 
-.darker {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
-    opacity: 0.5;
+.copyright {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* Sidebar links */

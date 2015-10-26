@@ -4,7 +4,7 @@
  <title>Niko Yuwono</title>
  <link href="http://nikoyuwono.github.io//atom.xml" rel="self"/>
  <link href="http://nikoyuwono.github.io//"/>
- <updated>2015-10-14T10:01:07+09:00</updated>
+ <updated>2015-10-26T17:06:04+09:00</updated>
  <id>http://nikoyuwono.github.io/</id>
  <author>
    <name>Niko Yuwono</name>
@@ -13,10 +13,86 @@
 
  
  <entry>
+   <title>Managing Gradle Dependencies</title>
+   <link href="http://nikoyuwono.github.io//2015/10/19/managing-gradle-dependencies/"/>
+   <updated>2015-10-19T00:00:00+09:00</updated>
+   <id>http://nikoyuwono.github.io//2015/10/19/managing-gradle-dependencies</id>
+   <content type="html">&lt;p&gt;Lately, I&amp;#39;m wondering how can I make my gradle build files better. Then I found a way to manage my gradle dependencies version separately from project gradle files that will be really helpful if you separate your project into several parts, for example MVP design pattern.&lt;/p&gt;
+
+&lt;p&gt;To achieve this you need to create a new gradle file, in my case I will name it dependencies and I will put it in buildconfig folder.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/gradle_dependencies/dependencies_gradle.png&quot; style=&quot;margin-left=auto;margin-right-auto;&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;And manage your dependencies in that file&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allprojects&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;repositories&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt;     &lt;span class=&quot;n&quot;&gt;jcenter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;//Libraries&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;androidSupportLibraryVersion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;23.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;butterKnifeVersion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;rxJavaVersion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;rxAndroidVersion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;//Test&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;15&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;espressoVersion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;16&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;androidTestSupportLibraryVersion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;17&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;18&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;uiDependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;19&lt;/span&gt;       &lt;span class=&quot;nl&quot;&gt;androidSupportLibraryV4:&lt;/span&gt;     &lt;span class=&quot;s&quot;&gt;&amp;quot;com.android.support:support-v4:${androidSupportLibraryVersion}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;20&lt;/span&gt;       &lt;span class=&quot;nl&quot;&gt;androidSupportAppcompatV7:&lt;/span&gt;   &lt;span class=&quot;s&quot;&gt;&amp;quot;com.android.support:appcompat-v7:${androidSupportLibraryVersion}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;21&lt;/span&gt;       &lt;span class=&quot;nl&quot;&gt;recyclerView:&lt;/span&gt;                &lt;span class=&quot;s&quot;&gt;&amp;quot;com.android.support:recyclerview-v7:${androidSupportLibraryVersion}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;22&lt;/span&gt;       &lt;span class=&quot;nl&quot;&gt;androidSupportDesign:&lt;/span&gt;        &lt;span class=&quot;s&quot;&gt;&amp;quot;com.android.support:design:${androidSupportLibraryVersion}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;23&lt;/span&gt;       &lt;span class=&quot;nl&quot;&gt;butterKnife:&lt;/span&gt;                 &lt;span class=&quot;s&quot;&gt;&amp;quot;com.jakewharton:butterknife:${butterKnifeVersion}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;24&lt;/span&gt;       &lt;span class=&quot;nl&quot;&gt;rxJava:&lt;/span&gt;                      &lt;span class=&quot;s&quot;&gt;&amp;quot;io.reactivex:rxjava:${rxJavaVersion}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;25&lt;/span&gt;       &lt;span class=&quot;nl&quot;&gt;rxAndroid:&lt;/span&gt;                   &lt;span class=&quot;s&quot;&gt;&amp;quot;io.reactivex:rxandroid:${rxAndroidVersion}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;26&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;27&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;28&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;uiTestDependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;29&lt;/span&gt;       &lt;span class=&quot;nl&quot;&gt;espresso:&lt;/span&gt;                    &lt;span class=&quot;s&quot;&gt;&amp;quot;com.android.support.test.espresso:espresso-core:${espressoVersion}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;30&lt;/span&gt;       &lt;span class=&quot;nl&quot;&gt;androidTestRunner:&lt;/span&gt;           &lt;span class=&quot;s&quot;&gt;&amp;quot;com.android.support.test:runner:${androidTestSupportLibraryVersion}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;31&lt;/span&gt;       &lt;span class=&quot;nl&quot;&gt;androidTestRules:&lt;/span&gt;            &lt;span class=&quot;s&quot;&gt;&amp;quot;com.android.support.test:rules:${androidTestSupportLibraryVersion}&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;32&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;33&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ 
+
+&lt;p&gt;And then to integrate this to your build files you need to include this line to your build.gradle file (The top level one, not the project build gradle)&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;from:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;buildconfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;gradle&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;And then you can use it in your project build gradle like this&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;lineno&quot;&gt; 1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 2&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uiDependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootProject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;uiDependencies&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 3&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uiTestDependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootProject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;uiTestDependencies&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 4&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt; 5&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uiDependencies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;androidSupportLibraryV4&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 6&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uiDependencies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;androidSupportAppcompatV7&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 7&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uiDependencies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;recyclerView&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 8&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uiDependencies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;androidSupportDesign&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt; 9&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uiDependencies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;butterKnife&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;10&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uiDependencies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rxJava&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;11&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uiDependencies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;rxAndroid&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;12&lt;/span&gt; 
+&lt;span class=&quot;lineno&quot;&gt;13&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uiTestDependencies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;espresso&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;14&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uiTestDependencies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;androidTestRunner&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;15&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uiTestDependencies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;androidTestRules&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;16&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;That&amp;#39;s all, I hope my post can help you!
+If you have any question, &lt;a href=&quot;https://twitter.com/intent/tweet?screen_name=niko_yuwono&quot;&gt;send me a tweet&lt;/a&gt; or leave a comment below! If you like this post you can share it with your friends using share buttons below.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Receipt Scanner (Text Detection)</title>
-   <link href="http://nikoyuwono.github.io//2015/10/05/receipt-scanner/"/>
-   <updated>2015-10-05T00:00:00+09:00</updated>
-   <id>http://nikoyuwono.github.io//2015/10/05/receipt-scanner</id>
+   <link href="http://nikoyuwono.github.io//2015/10/14/receipt-scanner/"/>
+   <updated>2015-10-14T00:00:00+09:00</updated>
+   <id>http://nikoyuwono.github.io//2015/10/14/receipt-scanner</id>
    <content type="html">&lt;p&gt;Text extraction from image becomes more popular these days. For example text translation from images, receipt scanner, paper scanner, etc.&lt;br&gt;
 But the question is, how is it done? First, to recognize what texts inside the image we need to know where the texts are &lt;strong&gt;located&lt;/strong&gt; and that&amp;#39;s our topic today.&lt;/p&gt;
 
@@ -34,7 +110,7 @@ But the question is, how is it done? First, to recognize what texts inside the i
 
 &lt;h3&gt;Original Image&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/text_detection/original.jpg&quot; height=&quot;75%&quot; width=&quot;75%&quot; style=&quot;margin-left=auto;margin-right-auto;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/text_detection/original.jpg&quot; height=&quot;75%&quot; width=&quot;75%&quot; style=&quot;margin-left=auto;margin-right-auto;&quot;&gt;&lt;/p&gt;
 
 &lt;h3&gt;Change color space from BGR to Gray.&lt;/h3&gt;
 
@@ -47,7 +123,7 @@ To convert image from BGR (or RGB) to Gray color space in OpenCV is quite simple
   
 
 &lt;p&gt;Result :&lt;br&gt;
-&lt;img src=&quot;/assets/text_detection/gray.jpg&quot; height=&quot;75%&quot; width=&quot;75%&quot; style=&quot;margin-left=auto;margin-right-auto;&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/images/posts/text_detection/gray.jpg&quot; height=&quot;75%&quot; width=&quot;75%&quot; style=&quot;margin-left=auto;margin-right-auto;&quot;&gt;&lt;/p&gt;
 
 &lt;h3&gt;Apply Morphological Gradient.&lt;/h3&gt;
 
@@ -62,7 +138,7 @@ To convert image from BGR (or RGB) to Gray color space in OpenCV is quite simple
 To understand more about dilaton and erosion you can check really nice demonstration in OpenCV&amp;#39;s example &lt;a href=&quot;http://docs.opencv.org/master/d9/d61/tutorial_py_morphological_ops.html#gsc.tab=0&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Result :&lt;br&gt;
-&lt;img src=&quot;/assets/text_detection/gradient.jpg&quot; height=&quot;75%&quot; width=&quot;75%&quot; style=&quot;margin-left=auto;margin-right-auto;&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/images/posts/text_detection/gradient.jpg&quot; height=&quot;75%&quot; width=&quot;75%&quot; style=&quot;margin-left=auto;margin-right-auto;&quot;&gt;&lt;/p&gt;
 
 &lt;h3&gt;Apply threshold to convert to binary image&lt;/h3&gt;
 
@@ -73,7 +149,7 @@ To understand more about dilaton and erosion you can check really nice demonstra
   
 
 &lt;p&gt;Result :&lt;br&gt;
-&lt;img src=&quot;/assets/text_detection/binary.jpg&quot; height=&quot;75%&quot; width=&quot;75%&quot; style=&quot;margin-left=auto;margin-right-auto;&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/images/posts/text_detection/binary.jpg&quot; height=&quot;75%&quot; width=&quot;75%&quot; style=&quot;margin-left=auto;margin-right-auto;&quot;&gt;&lt;/p&gt;
 
 &lt;h3&gt;Apply Closing Morphological Transformation&lt;/h3&gt;
 
@@ -85,7 +161,7 @@ To understand more about dilaton and erosion you can check really nice demonstra
   
 
 &lt;p&gt;Result :&lt;br&gt;
-&lt;img src=&quot;/assets/text_detection/closed.jpg&quot; height=&quot;75%&quot; width=&quot;75%&quot; style=&quot;margin-left=auto;margin-right-auto;&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/images/posts/text_detection/closed.jpg&quot; height=&quot;75%&quot; width=&quot;75%&quot; style=&quot;margin-left=auto;margin-right-auto;&quot;&gt;&lt;/p&gt;
 
 &lt;h3&gt;Find contours and filter it&lt;/h3&gt;
 
@@ -119,7 +195,7 @@ To understand more about dilaton and erosion you can check really nice demonstra
   
 
 &lt;p&gt;Result :&lt;br&gt;
-&lt;img src=&quot;/assets/text_detection/result.jpg&quot; height=&quot;75%&quot; width=&quot;75%&quot; style=&quot;margin-left=auto;margin-right-auto;&quot;&gt;&lt;/p&gt;
+&lt;img src=&quot;/assets/images/posts/text_detection/result.jpg&quot; height=&quot;75%&quot; width=&quot;75%&quot; style=&quot;margin-left=auto;margin-right-auto;&quot;&gt;&lt;/p&gt;
 
 &lt;p&gt;That&amp;#39;s all! I hope my post can help you to understand how to detect texts inside an image.&lt;br&gt;
 For recognizing the texts I will write a post about it in the future.&lt;br&gt;
