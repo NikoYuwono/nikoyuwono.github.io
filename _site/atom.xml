@@ -4,7 +4,7 @@
  <title>Niko Yuwono</title>
  <link href="http://nikoyuwono.github.io//atom.xml" rel="self"/>
  <link href="http://nikoyuwono.github.io//"/>
- <updated>2015-10-29T11:07:07+09:00</updated>
+ <updated>2015-10-30T09:09:02+09:00</updated>
  <id>http://nikoyuwono.github.io/</id>
  <author>
    <name>Niko Yuwono</name>
@@ -90,9 +90,9 @@ If you have any question, &lt;a href=&quot;https://twitter.com/intent/tweet?scre
  
  <entry>
    <title>Receipt Scanner (Text Detection)</title>
-   <link href="http://nikoyuwono.github.io//2015/10/14/receipt-scanner/"/>
-   <updated>2015-10-14T00:00:00+09:00</updated>
-   <id>http://nikoyuwono.github.io//2015/10/14/receipt-scanner</id>
+   <link href="http://nikoyuwono.github.io//2015/10/05/receipt-scanner/"/>
+   <updated>2015-10-05T00:00:00+09:00</updated>
+   <id>http://nikoyuwono.github.io//2015/10/05/receipt-scanner</id>
    <content type="html">&lt;p&gt;Text extraction from image becomes more popular these days. For example text translation from images, receipt scanner, paper scanner, etc.&lt;br&gt;
 But the question is, how is it done? First, to recognize what texts inside the image we need to know where the texts are &lt;strong&gt;located&lt;/strong&gt; and that&amp;#39;s our topic today.&lt;/p&gt;
 
