@@ -2,6 +2,7 @@
 layout: post
 title: Managing Gradle Dependencies
 image: assets/images/posts/gradle_dependencies/dependencies_gradle.png
+description: Lately, I'm wondering how can I make my gradle build files better. Then I found a way to manage my gradle dependencies version separately from project gradle files that will be really helpful if you separate your project into several parts, for example MVP design pattern.
 ---
 
 

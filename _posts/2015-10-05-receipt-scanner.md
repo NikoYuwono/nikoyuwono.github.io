@@ -2,6 +2,7 @@
 layout: post
 title: Receipt Scanner (Text Detection)
 image: assets/images/posts/text_detection/result.jpg
+description: Text extraction from image becomes more popular these days. For example text translation from images, receipt scanner, paper scanner, etc. But the question is, how is it done? First, to recognize what texts inside the image we need to know where the texts are **located** and that's our topic today.
 ---
 
 
