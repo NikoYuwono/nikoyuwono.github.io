@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Managing Gradle Dependencies
-image: /assets/images/posts/gradle_dependencies/dependencies_gradle.png
+image: assets/images/posts/gradle_dependencies/dependencies_gradle.png
 ---
 
 

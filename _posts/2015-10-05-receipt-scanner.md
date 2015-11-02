@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Receipt Scanner (Text Detection)
-image: /assets/images/posts/text_detection/result.jpg
+image: assets/images/posts/text_detection/result.jpg
 ---
 
 
