@@ -16,7 +16,7 @@ author:
   name:           'Niko Yuwono'
   url:            https://twitter.com/niko_yuwono
 
-paginate:         1
+paginate:         5
 
 # Custom vars
 version:          0.1

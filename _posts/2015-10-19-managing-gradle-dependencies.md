@@ -7,7 +7,7 @@ description: Lately, I'm wondering how can I make my gradle build files better. 
 
 
 Lately, I'm wondering how can I make my gradle build files better. Then I found a way to manage my gradle dependencies version separately from project gradle files that will be really helpful if you separate your project into several parts, for example MVP design pattern.
-
+<!-- more -->
 To achieve this you need to create a new gradle file, in my case I will name it dependencies and I will put it in buildconfig folder.
 
 <img src="/assets/images/posts/gradle_dependencies/dependencies_gradle.png" style="margin-left=auto;margin-right-auto;">

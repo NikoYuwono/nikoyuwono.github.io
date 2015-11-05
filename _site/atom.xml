@@ -4,7 +4,7 @@
  <title>Niko Yuwono</title>
  <link href="http://nikoyuwono.github.io//atom.xml" rel="self"/>
  <link href="http://nikoyuwono.github.io//"/>
- <updated>2015-10-30T09:09:02+09:00</updated>
+ <updated>2015-11-05T13:29:30+09:00</updated>
  <id>http://nikoyuwono.github.io/</id>
  <author>
    <name>Niko Yuwono</name>
@@ -17,9 +17,9 @@
    <link href="http://nikoyuwono.github.io//2015/10/19/managing-gradle-dependencies/"/>
    <updated>2015-10-19T00:00:00+09:00</updated>
    <id>http://nikoyuwono.github.io//2015/10/19/managing-gradle-dependencies</id>
-   <content type="html">&lt;p&gt;Lately, I&amp;#39;m wondering how can I make my gradle build files better. Then I found a way to manage my gradle dependencies version separately from project gradle files that will be really helpful if you separate your project into several parts, for example MVP design pattern.&lt;/p&gt;
-
-&lt;p&gt;To achieve this you need to create a new gradle file, in my case I will name it dependencies and I will put it in buildconfig folder.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Lately, I&amp;#39;m wondering how can I make my gradle build files better. Then I found a way to manage my gradle dependencies version separately from project gradle files that will be really helpful if you separate your project into several parts, for example MVP design pattern.
+&amp;lt;!-- more --&amp;gt;
+To achieve this you need to create a new gradle file, in my case I will name it dependencies and I will put it in buildconfig folder.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/posts/gradle_dependencies/dependencies_gradle.png&quot; style=&quot;margin-left=auto;margin-right-auto;&quot;&gt;&lt;/p&gt;
 
@@ -94,9 +94,9 @@ If you have any question, &lt;a href=&quot;https://twitter.com/intent/tweet?scre
    <updated>2015-10-05T00:00:00+09:00</updated>
    <id>http://nikoyuwono.github.io//2015/10/05/receipt-scanner</id>
    <content type="html">&lt;p&gt;Text extraction from image becomes more popular these days. For example text translation from images, receipt scanner, paper scanner, etc.&lt;br&gt;
-But the question is, how is it done? First, to recognize what texts inside the image we need to know where the texts are &lt;strong&gt;located&lt;/strong&gt; and that&amp;#39;s our topic today.&lt;/p&gt;
-
-&lt;p&gt;My approaches to detect where the texts are:  &lt;/p&gt;
+But the question is, how is it done? First, to recognize what texts inside the image we need to know where the texts are &lt;strong&gt;located&lt;/strong&gt; and that&amp;#39;s our topic today.
+&amp;lt;!-- more --&amp;gt;
+My approaches to detect where the texts are:  &lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Change color space from BGR (or RGB) to Gray&lt;br&gt;&lt;/li&gt;

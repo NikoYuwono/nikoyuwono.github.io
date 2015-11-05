@@ -16,21 +16,17 @@
     
       <meta content="article" property="og:type">
     
-    
-      <meta content="Hello, I'm Niko Yuwono. I'm a software engineer based in Tokyo, Japan and this is my blog about Computer Vision and Android Development." property="og:description">
-    
+      <meta content="" property="og:description">
     
       <meta content="http://nikoyuwono.github.io//" property="og:url">
     
     
-    
-      <meta content="/assets/images/niko.jpeg" property="og:image">
-    
+      <meta content="http://nikoyuwono.github.io/" property="og:image">
     
     
     <title>
     
-      Niko Yuwono &middot; 
+      Niko Yuwono
     
     </title>
 
@@ -112,80 +108,39 @@
 
     <p>Lately, I&#39;m wondering how can I make my gradle build files better. Then I found a way to manage my gradle dependencies version separately from project gradle files that will be really helpful if you separate your project into several parts, for example MVP design pattern.</p>
 
-<p>To achieve this you need to create a new gradle file, in my case I will name it dependencies and I will put it in buildconfig folder.</p>
+     
+     
+    
+    <p><a class="btn btn-sm btn-primary" href="/2015/10/19/managing-gradle-dependencies//#read-more" role="button">Read more <i class="fa fa-arrow-circle-right"></i></a>
+    </p>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2015/10/05/receipt-scanner/">
+        Receipt Scanner (Text Detection)
+      </a>
+    </h1>
 
-<p><img src="/assets/images/posts/gradle_dependencies/dependencies_gradle.png" style="margin-left=auto;margin-right-auto;"></p>
+    <span class="post-date">05 Oct 2015</span>
 
-<p>And manage your dependencies in that file</p>
+    <p>Text extraction from image becomes more popular these days. For example text translation from images, receipt scanner, paper scanner, etc.<br>
+But the question is, how is it done? First, to recognize what texts inside the image we need to know where the texts are <strong>located</strong> and that&#39;s our topic today.</p>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="n">allprojects</span> <span class="o">{</span>
-<span class="lineno"> 2</span>   <span class="n">repositories</span> <span class="o">{</span>
-<span class="lineno"> 3</span>     <span class="n">jcenter</span><span class="o">()</span>
-<span class="lineno"> 4</span>   <span class="o">}</span>
-<span class="lineno"> 5</span> <span class="o">}</span>
-<span class="lineno"> 6</span> 
-<span class="lineno"> 7</span> <span class="n">ext</span> <span class="o">{</span>
-<span class="lineno"> 8</span>   <span class="c1">//Libraries</span>
-<span class="lineno"> 9</span>   <span class="n">androidSupportLibraryVersion</span> <span class="o">=</span> <span class="err">&#39;</span><span class="mf">23.0</span><span class="o">.</span><span class="mi">1</span><span class="err">&#39;</span>
-<span class="lineno">10</span>   <span class="n">butterKnifeVersion</span> <span class="o">=</span> <span class="err">&#39;</span><span class="mf">7.0</span><span class="o">.</span><span class="mi">1</span><span class="err">&#39;</span>
-<span class="lineno">11</span>   <span class="n">rxJavaVersion</span> <span class="o">=</span> <span class="err">&#39;</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">14</span><span class="err">&#39;</span>
-<span class="lineno">12</span>   <span class="n">rxAndroidVersion</span> <span class="o">=</span> <span class="err">&#39;</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">1</span><span class="err">&#39;</span>
-<span class="lineno">13</span> 
-<span class="lineno">14</span>   <span class="c1">//Test</span>
-<span class="lineno">15</span>   <span class="n">espressoVersion</span> <span class="o">=</span> <span class="err">&#39;</span><span class="mf">2.2</span><span class="o">.</span><span class="mi">1</span><span class="err">&#39;</span>
-<span class="lineno">16</span>   <span class="n">androidTestSupportLibraryVersion</span> <span class="o">=</span> <span class="err">&#39;</span><span class="mf">0.1</span><span class="err">&#39;</span>
-<span class="lineno">17</span> 
-<span class="lineno">18</span>   <span class="n">uiDependencies</span> <span class="o">=</span> <span class="o">[</span>
-<span class="lineno">19</span>       <span class="nl">androidSupportLibraryV4:</span>     <span class="s">&quot;com.android.support:support-v4:${androidSupportLibraryVersion}&quot;</span><span class="o">,</span>
-<span class="lineno">20</span>       <span class="nl">androidSupportAppcompatV7:</span>   <span class="s">&quot;com.android.support:appcompat-v7:${androidSupportLibraryVersion}&quot;</span><span class="o">,</span>
-<span class="lineno">21</span>       <span class="nl">recyclerView:</span>                <span class="s">&quot;com.android.support:recyclerview-v7:${androidSupportLibraryVersion}&quot;</span><span class="o">,</span>
-<span class="lineno">22</span>       <span class="nl">androidSupportDesign:</span>        <span class="s">&quot;com.android.support:design:${androidSupportLibraryVersion}&quot;</span><span class="o">,</span>
-<span class="lineno">23</span>       <span class="nl">butterKnife:</span>                 <span class="s">&quot;com.jakewharton:butterknife:${butterKnifeVersion}&quot;</span><span class="o">,</span>
-<span class="lineno">24</span>       <span class="nl">rxJava:</span>                      <span class="s">&quot;io.reactivex:rxjava:${rxJavaVersion}&quot;</span><span class="o">,</span>
-<span class="lineno">25</span>       <span class="nl">rxAndroid:</span>                   <span class="s">&quot;io.reactivex:rxandroid:${rxAndroidVersion}&quot;</span><span class="o">,</span>
-<span class="lineno">26</span>   <span class="o">]</span>
-<span class="lineno">27</span> 
-<span class="lineno">28</span>   <span class="n">uiTestDependencies</span> <span class="o">=</span> <span class="o">[</span>
-<span class="lineno">29</span>       <span class="nl">espresso:</span>                    <span class="s">&quot;com.android.support.test.espresso:espresso-core:${espressoVersion}&quot;</span><span class="o">,</span>
-<span class="lineno">30</span>       <span class="nl">androidTestRunner:</span>           <span class="s">&quot;com.android.support.test:runner:${androidTestSupportLibraryVersion}&quot;</span><span class="o">,</span>
-<span class="lineno">31</span>       <span class="nl">androidTestRules:</span>            <span class="s">&quot;com.android.support.test:rules:${androidTestSupportLibraryVersion}&quot;</span><span class="o">,</span>
-<span class="lineno">32</span>   <span class="o">]</span>
-<span class="lineno">33</span> <span class="o">}</span></code></pre></div>
- 
-
-<p>And then to integrate this to your build files you need to include this line to your build.gradle file (The top level one, not the project build gradle)</p>
-
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">apply</span> <span class="nl">from:</span> <span class="err">&#39;</span><span class="n">buildconfig</span><span class="o">/</span><span class="n">dependencies</span><span class="o">.</span><span class="na">gradle</span><span class="err">&#39;</span></code></pre></div>
-
-<p>And then you can use it in your project build gradle like this</p>
-
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="lineno"> 1</span> <span class="n">dependencies</span> <span class="o">{</span>
-<span class="lineno"> 2</span>   <span class="n">def</span> <span class="n">uiDependencies</span> <span class="o">=</span> <span class="n">rootProject</span><span class="o">.</span><span class="na">ext</span><span class="o">.</span><span class="na">uiDependencies</span>
-<span class="lineno"> 3</span>   <span class="n">def</span> <span class="n">uiTestDependencies</span> <span class="o">=</span> <span class="n">rootProject</span><span class="o">.</span><span class="na">ext</span><span class="o">.</span><span class="na">uiTestDependencies</span>
-<span class="lineno"> 4</span> 
-<span class="lineno"> 5</span>   <span class="n">compile</span> <span class="n">uiDependencies</span><span class="o">.</span><span class="na">androidSupportLibraryV4</span>
-<span class="lineno"> 6</span>   <span class="n">compile</span> <span class="n">uiDependencies</span><span class="o">.</span><span class="na">androidSupportAppcompatV7</span>
-<span class="lineno"> 7</span>   <span class="n">compile</span> <span class="n">uiDependencies</span><span class="o">.</span><span class="na">recyclerView</span>
-<span class="lineno"> 8</span>   <span class="n">compile</span> <span class="n">uiDependencies</span><span class="o">.</span><span class="na">androidSupportDesign</span>
-<span class="lineno"> 9</span>   <span class="n">compile</span> <span class="n">uiDependencies</span><span class="o">.</span><span class="na">butterKnife</span>
-<span class="lineno">10</span>   <span class="n">compile</span> <span class="n">uiDependencies</span><span class="o">.</span><span class="na">rxJava</span>
-<span class="lineno">11</span>   <span class="n">compile</span> <span class="n">uiDependencies</span><span class="o">.</span><span class="na">rxAndroid</span>
-<span class="lineno">12</span> 
-<span class="lineno">13</span>   <span class="n">compile</span> <span class="n">uiTestDependencies</span><span class="o">.</span><span class="na">espresso</span>
-<span class="lineno">14</span>   <span class="n">compile</span> <span class="n">uiTestDependencies</span><span class="o">.</span><span class="na">androidTestRunner</span>
-<span class="lineno">15</span>   <span class="n">compile</span> <span class="n">uiTestDependencies</span><span class="o">.</span><span class="na">androidTestRules</span>
-<span class="lineno">16</span> <span class="o">}</span></code></pre></div>
-
-<p>That&#39;s all, I hope my post can help you!
-If you have any question, <a href="https://twitter.com/intent/tweet?screen_name=niko_yuwono">send me a tweet</a> or leave a comment below! If you like this post you can share it with your friends using share buttons below.</p>
-
+     
+     
+    
+    <p><a class="btn btn-sm btn-primary" href="/2015/10/05/receipt-scanner//#read-more" role="button">Read more <i class="fa fa-arrow-circle-right"></i></a>
+    </p>
+    
   </div>
   
 </div>
 
 <div class="pagination">
   
-    <a class="pagination-item older" href="/page2">Older</a>
+    <span class="pagination-item older">Older</span>
   
   
     <span class="pagination-item newer">Newer</span>

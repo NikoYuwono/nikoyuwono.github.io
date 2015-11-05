@@ -36,32 +36,32 @@ morphologyEx(gray, gradient, MORPH_GRADIENT, morphStructure);
 Which morphStructure is kernel of structuring element that will define how the gradient will be calculated. morphStructureは要素を構成する核でどのように勾配を計算するのかを定義します。 
 To understand more about dilaton and erosion you can check really nice demonstration in OpenCV's example [here][2]dilationとerosionをもっと理解するためにはOpenCVの例の中にあるとても良いデモンストレーションを見て頂きましょう。
 
-Result :  
+Result :  結果
 <img src="/assets/images/posts/text_detection/gradient.jpg" height="75%" width="75%" style="margin-left=auto;margin-right-auto;">
 
 ###Apply threshold to convert to binary image　バイナリーイメージに変換するため「しきい値」を適用する
-I'm using Otsu algorithm to choose the optimal threshold value to convert the processed image to binary image.
+I'm using Otsu algorithm to choose the optimal threshold value to convert the processed image to binary image.私は加工画像をバイナリーイメージに変換するための最適なしきい値を選択するために大津のアルゴリズムを使用しています。
 {% highlight cpp %}
 Mat binary;
 threshold(gradient, binary, 0.0, 255.0, THRESH_BINARY | THRESH_OTSU);
 {% endhighlight %}  
 
-Result :  
+Result :結果  
 <img src="/assets/images/posts/text_detection/binary.jpg" height="75%" width="75%" style="margin-left=auto;margin-right-auto;">
 
-###Apply Closing Morphological Transformation  
-And the last one before we can find the contours we need to do Closing Morphological Transformation which is dilation followed by erosion that will close small holes between words so we can group it into a sentence horizontally.
+###Apply Closing Morphological Transformation  形態学的なクロージング変換を適用する
+And the last one before we can find the contours(輪郭) we need to do Closing Morphological Transformation, which is dilation followed by erosion, that will close small holes between words so we can group it into a sentence horizontally.輪郭を認識する前の最後の工程として、文字の間にある小さな穴を塞ぎ、ディレーションからエローションに続く「形態学的なクロージング変換」をする必要があり、それによって文章を水平方向に分けることができます。
 {% highlight cpp %}
 Mat closed;
 morphStructure = getStructuringElement(MORPH_RECT, Size(15, 1));
 morphologyEx(binary, closed, MORPH_CLOSE, morphStructure);
 {% endhighlight %}  
 
-Result :  
+Result :  結果
 <img src="/assets/images/posts/text_detection/closed.jpg" height="75%" width="75%" style="margin-left=auto;margin-right-auto;">
 
-###Find contours and filter it  
-After all the processing it's time to find contours and filter it so we finally can locate where the texts are located.
+###Find contours and filter it  輪郭を検出しフィルターする
+After all the processing it's time to find contours and filter it so we finally can locate where the texts are located.全ての処理の後に輪郭を検出しフィルターすることでどのに文章があるのかを見つけることができます。
 {% highlight cpp %}
 // Find contours
 Mat mask = Mat::zeros(bw.size(), CV_8UC1);
@@ -90,12 +90,12 @@ for(int i = 0; i >= 0; i = hierarchy[i][0])
 }
 {% endhighlight %}  
 
-Result :  
+Result :  結果
 <img src="/assets/images/posts/text_detection/result.jpg" height="75%" width="75%" style="margin-left=auto;margin-right-auto;">
 
-That's all! I hope my post can help you to understand how to detect texts inside an image.  
-For recognizing the texts I will write a post about it in the future.  
-If you have any question, <a href="https://twitter.com/intent/tweet?screen_name=niko_yuwono">send me a tweet</a> or leave a comment below! If you like this post you can share it with your friends using share buttons below.
+That's all! I hope my post can help you to understand how to detect texts inside an image.  以上です！このポストが、画像の中からどのように文章を検出するのかを理解する助けになればと思います。
+For recognizing the texts, I will write a post about it in the future.  「文章の認識」については今度のポストに書こうと思います。
+If you have any question, <a href="https://twitter.com/intent/tweet?screen_name=niko_yuwono">send me a tweet</a> or leave a comment below! If you like this post you can share it with your friends using share buttons below.質問がございましたら、ツイートを投稿して下さい！もしこのポストが気に入ったら、下のシェアボタンを使って友達にシェアして下さい。
 
   
 [1]: https://www.quora.com/Computer-Vision/If-you-had-to-choose-would-you-rather-go-without-luminance-or-chrominance/answer/John-Zhang
