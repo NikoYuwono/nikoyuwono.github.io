@@ -6,8 +6,8 @@ description: Lately, I'm wondering how can I make my gradle build files better. 
 ---
 
 
-Lately, I'm wondering how can I make my gradle build files better. Then I found a way to manage my gradle dependencies version separately from project gradle files that will be really helpful if you separate your project into several parts, for example MVP design pattern.
-<!-- more -->
+Lately, I've wondered how can I make my gradle build files better. Then I found a way to manage my gradle dependencies version separately from project gradle files that will be really helpful if you separate your project into several parts, for example MVP design pattern.
+
 To achieve this you need to create a new gradle file, in my case I will name it dependencies and I will put it in buildconfig folder.
 
 <img src="/assets/images/posts/gradle_dependencies/dependencies_gradle.png" style="margin-left=auto;margin-right-auto;">
@@ -50,7 +50,7 @@ ext {
 }
 {% endhighlight %} 
 
-And then to integrate this to your build files you need to include this line to your build.gradle file (The top level one, not the project build gradle)
+And then, to integrate this to your build files, you need to include this line to your build.gradle file (The top level one, not the project build gradle)
 
 {% highlight java %}
 apply from: 'buildconfig/dependencies.gradle'

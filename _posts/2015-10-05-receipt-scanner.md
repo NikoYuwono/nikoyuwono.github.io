@@ -8,7 +8,7 @@ description: Text extraction from image becomes more popular these days. For exa
 
 Text extraction from image becomes more popular these days. For example text translation from images, receipt scanner, paper scanner, etc.  
 But the question is, how is it done? First, to recognize what texts inside the image we need to know where the texts are **located** and that's our topic today.
-<!-- more -->
+
 My approaches to detect where the texts are:  
 
 1. Change color space from BGR (or RGB) to Gray  
