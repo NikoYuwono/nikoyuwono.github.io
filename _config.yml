@@ -9,7 +9,7 @@ relative_permalinks: true
 # Setup
 title:            Niko Yuwono
 description:      'Hello, I''m Niko Yuwono. I''m a software engineer based in Tokyo, Japan and this is my blog about Computer Vision and Android Development.'
-url:              http://nikoyuwono.github.io/
+url:              http://nikoyuwono.com
 baseurl:          /
 
 author:
