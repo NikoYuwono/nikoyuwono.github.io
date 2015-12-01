@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Toolbar Panel
+description: Recently I've been working on a Library that inspired from Android DrawerLayout, but instead of showing drawer from either left or right this library will provide you function to pull down the toolbar to show a panel which you can customize by yourself.
 ---
 
 Recently I've been working on a Library that inspired from Android DrawerLayout, but instead of showing drawer from either left or right this library will provide you function to pull down the toolbar to show a panel which you can customize by yourself.
