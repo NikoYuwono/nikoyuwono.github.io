@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Realm Browser
-image: assets/images/posts/gradle_dependencies/realm_browser_sample.png
+image: /assets/images/posts/gradle_dependencies/realm_browser_sample.png
 description: Recently realm released realm 0.86 that included Dynamic Realms. With Dynamic Realms we can have access to Realm Schema and we can also create objects and access fields dynamically with using strings (Model name and Field name respectively). These flexibility of Dynamic Realms gave me idea to create a Realm Browser for Android.
 ---
 
