@@ -7,7 +7,7 @@ permalink:        pretty
 
 # Setup
 title:            Niko Yuwono
-description:      'Hello, I''m Niko Yuwono. I''m a software engineer based in Tokyo, Japan and this is my blog about Computer Vision and Android Development.'
+description:      'Hello, I''m Niko Yuwono. I''m a software engineer based in Tokyo, Japan and this is my blog about Android, iOS and Computer Vision Development.'
 url:              http://nikoyuwono.com
 baseurl:          /
 
@@ -26,10 +26,10 @@ github:           https://github.com/NikoYuwono
 stackoverflow:    http://stackoverflow.com/users/1545363/niko-yuwono
 linkedin:         https://www.linkedin.com/in/nikoyuwono
 twitter:          https://twitter.com/niko_yuwono
-  
+
 disqusid:         nikoyuwono
 
-# Allow URL Redirects: 
+# Allow URL Redirects:
 #  * https://help.github.com/articles/redirects-on-github-pages
 gems:
     - jekyll-redirect-from
