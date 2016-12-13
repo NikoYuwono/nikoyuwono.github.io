@@ -185,7 +185,7 @@ protocol ItemSelectionViewControllerDelegate: class {
     func didSelect(item: T)
 }
 
-class ItemSelectionViewController<T: Item, D: M3CAbuseReasonViewControllerDelegate where D.T == T>: UITableViewController {
+class ItemSelectionViewController<T: Item, D: ItemSelectionViewControllerDelegate where D.T == T>: UITableViewController {
 
     var items: [T]?
     var selectedItem: T?
@@ -246,7 +246,7 @@ class FoodSelectionViewController: ItemSelectionViewController<Food, FoodOrderVi
 So now we have two Type Parameters in ItemSelectionViewController
 
 ```
-class ItemSelectionViewController<T: Item, D: M3CAbuseReasonViewControllerDelegate where D.T == T>: UITableViewController
+class ItemSelectionViewController<T: Item, D: ItemSelectionViewControllerDelegate where D.T == T>: UITableViewController
 ```
 
 One is item type that will determine the type of `var items: [T]?` and `var selectedItem: T?`. Second one is delegate class that have declared the associated type equal to the item type (`T`).  
